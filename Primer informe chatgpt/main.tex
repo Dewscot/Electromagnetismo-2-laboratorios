@@ -1,0 +1,327 @@
+% ================================================================
+% INFORME DE LABORATORIO 1: MAGNETISMO
+% Proyecto preparado para Overleaf (compilador recomendado: pdfLaTeX)
+%
+% EDITAR ANTES DE ENTREGAR:
+%   1) Complete docente, ayudante, sección y fecha.
+%   2) Revise la sección 5.4 si recuerda el resultado del chorro de agua.
+%   3) Agregue voltajes, corrientes o conteos solo si fueron registrados.
+% ================================================================
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,array}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\geometry{top=1.8cm,bottom=2.0cm,left=1.75cm,right=1.75cm,headheight=14pt}
+\setlength{\columnsep}{0.65cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist{nosep,leftmargin=*}
+\sisetup{output-decimal-marker={,},range-phrase={--},range-units=single}
+\captionsetup{font=small,labelfont=bf,justification=centering}
+
+\definecolor{udecazul}{HTML}{003A70}
+\definecolor{udecoro}{HTML}{C79A2B}
+\definecolor{grisclaro}{HTML}{F2F4F7}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=udecazul,
+  citecolor=udecazul,
+  urlcolor=udecazul,
+  pdftitle={Laboratorio 1: Magnetismo},
+  pdfauthor={Nicolas Ruiz y Julio Bastias}
+}
+
+% ---------- Datos editables ----------
+\newcommand{\asignatura}{Electromagnetismo 2}
+\newcommand{\laboratorio}{Laboratorio 1: Magnetismo}
+\newcommand{\autores}{Nicolás Ruiz\\Julio Bastías}
+\newcommand{\docente}{Por completar}
+\newcommand{\ayudante}{Por completar}
+\newcommand{\seccion}{Por completar}
+\newcommand{\fechaentrega}{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small \laboratorio}
+\rhead{\small \asignatura}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\resultadovisual}[1]{%
+  \begin{center}
+  \colorbox{grisclaro}{\parbox{0.93\columnwidth}{\small\textbf{Lectura de la evidencia.} #1}}
+  \end{center}
+}
+
+\begin{document}
+
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \begin{minipage}{0.46\textwidth}
+      \raggedright\includegraphics[width=0.68\linewidth]{figuras/logo_udec.png}
+    \end{minipage}
+    \begin{minipage}{0.46\textwidth}
+      \raggedleft\includegraphics[width=0.68\linewidth]{figuras/logo_fcfm.png}
+    \end{minipage}
+
+    \vspace{1.2cm}
+    {\large Universidad de Concepción\par}
+    {\large Facultad de Ciencias Físicas y Matemáticas\par}
+    \vspace{0.5cm}
+    {\color{udecoro}\rule{0.78\textwidth}{1.2pt}\par}
+    \vspace{1.1cm}
+    {\Large\bfseries \asignatura\par}
+    \vspace{0.45cm}
+    {\Huge\bfseries\color{udecazul} \laboratorio\par}
+    \vspace{0.45cm}
+    {\large Informe experimental\par}
+    \vspace{1.2cm}
+
+    \includegraphics[width=0.60\textwidth,height=7.0cm,keepaspectratio]{imagenes/montaje_general.jpg}
+
+    \vfill
+    \begin{tabular}{@{}rl@{}}
+      \textbf{Estudiantes:} & \begin{tabular}[t]{l}\autores\end{tabular}\\[0.35cm]
+      \textbf{Docente:} & \docente\\
+      \textbf{Ayudante:} & \ayudante\\
+      \textbf{Sección:} & \seccion\\
+      \textbf{Fecha:} & \fechaentrega
+    \end{tabular}
+    \vspace{0.8cm}
+  \end{center}
+\end{titlepage}
+
+\begin{abstract}
+Se estudiaron cinco manifestaciones del magnetismo: la atracción de clavos mediante un imán permanente y un electroimán, la visualización del campo de una bobina, el funcionamiento de motores de corriente continua con campo permanente y electromagnético, y la respuesta diamagnética esperada del agua. Los registros muestran atracción y magnetización inducida en los clavos, un patrón de limaduras compatible con el campo dipolar de una bobina y rotación del inducido en los dos montajes de motor. Estos resultados concuerdan cualitativamente con la relación entre corriente y campo magnético y con el torque sobre una espira recorrida por corriente. No se dispone, en cambio, de un registro válido del acercamiento lateral del imán a un chorro fino; por ello el efecto diamagnético no se declara observado. La falta de mediciones sincronizadas de tensión, corriente, distancia y rapidez limita el análisis a una comparación cualitativa con la teoría.
+\end{abstract}
+
+\begin{multicols}{2}
+\raggedcolumns
+
+\section{Introducción}
+
+El campo magnético puede originarse tanto por corrientes eléctricas como por la magnetización de un material. Esta dualidad permite construir fuentes controlables, como los electro imanes, y fuentes autónomas, como los imanes permanentes. También explica la conversión de energía eléctrica en movimiento y la respuesta de la materia ante un campo no uniforme.
+
+La guía propone cinco experiencias cualitativas que conectan estas ideas: comparar fuentes magnéticas, representar un campo con limaduras, operar dos motores y observar el diamagnetismo del agua \cite{guia2026}. En este informe se contrastan los registros fotográficos y audiovisuales con las predicciones físicas. Cuando la evidencia no permite recuperar un valor o identificar un efecto, se declara explícitamente la limitación en lugar de asignar datos no medidos.
+
+\section{Objetivos}
+
+\subsection{Objetivo general}
+
+Estudiar las propiedades de distintas fuentes de campo magnético, su interacción con materiales ferromagnéticos y diamagnéticos, y la conversión electromecánica producida por la fuerza magnética.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+  \item Comparar un imán permanente con un electroimán y explicar sus ventajas y limitaciones.
+  \item Visualizar la geometría del campo de una bobina mediante limaduras de hierro.
+  \item Analizar el funcionamiento de motores con campo permanente y electromagnético.
+  \item Explicar el efecto del voltaje sobre los montajes eléctricos.
+  \item Distinguir diamagnetismo y ferromagnetismo, y evaluar críticamente el ensayo con agua.
+\end{itemize}
+
+\section{Marco teórico}
+
+\subsection{Imán permanente y electroimán}
+
+Un \textbf{imán permanente} conserva una magnetización macroscópica sin alimentación externa. En un material ferromagnético, la interacción entre momentos atómicos favorece dominios magnéticos; una alta remanencia y coercitividad permiten que parte importante de su alineación persista después de retirar el campo magnetizante 
+
+Un \textbf{electroimán} produce campo mediante una corriente que circula por una bobina. Si el devanado rodea un núcleo ferromagnético, la magnetización del núcleo concentra el flujo. Para un solenoide largo e ideal,
+
+\begin{equation}
+  B \simeq \mu_0\mu_r\frac{N}{L}I,
+  \label{eq:solenoide}
+\end{equation}
+
+donde $N$ es el número de espiras, $L$ la longitud del devanado, $I$ la corriente y $\mu_r$ la permeabilidad relativa efectiva. La geometría finita, las fugas de flujo y la saturación del núcleo hacen que la ecuación sea solo una aproximación \cite{griffiths2017}.
+
+Si la resistencia permanece aproximadamente constante, la ley de Ohm entrega
+
+\begin{equation}
+  I=\frac{V}{R}.
+  \label{eq:ohm}
+\end{equation}
+
+Por tanto, elevar el voltaje suele aumentar $I$ y $B$. Sin embargo, el calentamiento eleva la resistencia del alambre y limita el crecimiento de la corriente; además, el núcleo puede acercarse a saturación.
+
+\begin{center}
+\small
+\begin{tabularx}{\columnwidth}{@{}>{\bfseries}p{0.24\columnwidth}XX@{}}
+\toprule
+ & Permanente & Electroimán \\
+\midrule
+Energía & No requiere alimentación para mantener el campo. & Requiere corriente y disipa calor. \\
+Control & Campo poco ajustable; puede desmagnetizarse. & Intensidad y polaridad regulables. \\
+Uso & Compacto y simple. & Adecuado para activación, modulación y campos intensos con núcleo. \\
+\bottomrule
+\end{tabularx}
+\captionof{table}{Comparación funcional entre las dos fuentes magnéticas.}
+\label{tab:imanes}
+\end{center}
+
+Así, la principal ventaja del imán permanente es mantener un campo sin consumir energía, mientras que su desventaja es la escasa capacidad de regulación. El electroimán ofrece control de intensidad y polaridad, pero requiere alimentación y puede calentarse.
+
+\subsection{Visualización del campo}
+
+Las limaduras de hierro se magnetizan por inducción y experimentan torque hasta orientarse aproximadamente con el campo local. Su distribución no constituye una medición vectorial ni una línea física continua, pero revela la geometría del campo: mayor concentración de limaduras suele indicar regiones de mayor gradiente o intensidad.
+
+\subsection{Efecto motor}
+
+Un conductor de longitud vectorial $\vec L$, recorrido por corriente en un campo $\vec B$, experimenta
+
+\begin{equation}
+  \vec F=I\,\vec L\times\vec B.
+  \label{eq:fuerza}
+\end{equation}
+
+En una espira de $N$ vueltas y área $A$, las fuerzas forman un par cuyo módulo ideal es
+
+\begin{equation}
+  \tau=NIAB\sin\theta.
+  \label{eq:torque}
+\end{equation}
+
+El conmutador invierte la corriente del rotor cada media vuelta para conservar un torque útil. En un modelo de motor de corriente continua,
+
+\subsection{Diamagnetismo y ferromagnetismo}
+
+La magnetización puede escribirse como $\vec M=\chi_m\vec H$. En un \textbf{diamagnético}, $\chi_m<0$: el campo induce una respuesta opuesta al campo aplicado, generalmente débil y sin remanencia. En un \textbf{ferromagnético}, la interacción cooperativa entre momentos produce una respuesta intensa, no lineal.
+
+Como el agua es diamagnética, se espera una desviación muy pequeña hacia la región de menor campo. 
+\section{Materiales y método}
+
+Se siguió el orden de la guía de laboratorio. Los montajes principales emplearon una fuente de corriente continua, conductores con terminales, interruptor, clavos de hierro, un imán recto, una bobina de 300 espiras con núcleo, cartulinas, limaduras, una máquina didáctica con rotor y conmutador, campo permanente o bobinas de campo, y un grifo de agua.
+
+\begin{enumerate}
+  \item \textbf{Fuentes magnéticas.} Se acercó el imán permanente a los clavos variando la separación Como el agua es diamagnética, se espera una desviación. Luego se energizó el electroimán y se comparó cualitativamente su capacidad de atraerlos al variar distancia y voltaje dentro de \SIrange{4}{6}{\volt}.
+  \item \textbf{Campo de la bobina.} Se ubicó una cartulina sobre la bobina, se distribuyeron limaduras y se energizó el devanado entre \SIrange{4}{6}{\volt}. La cartulina se movió suavemente para facilitar la orientación de las limaduras.
+  \item \textbf{Motor con imán permanente.} Se alimentó el rotor inicialmente con \SI{6}{\volt}. Si no arrancaba, se permitió un impulso leve, y se aumentó la tensión sin superar \SI{8}{\volt}.
+  \item \textbf{Motor con electroimán.} Se reemplazó el campo permanente por el conjunto de núcleo en U y bobinas de campo; se repitió el procedimiento de \SIrange{6}{8}{\volt}.
+  \item \textbf{Diamagnetismo.} El procedimiento indicado consistía en formar un chorro fino y acercar lateralmente el imán sin tocar el agua, buscando una curvatura reproducible.
+\end{enumerate}
+
+No se recuperó una planilla con valores de corriente, distancia, número de clavos, rapidez de giro ni repeticiones. En consecuencia, las fotografías y los videos se analizaron como evidencia cualitativa.
+
+\section{Resultados y discusión}
+
+\subsection{Atracción y magnetización de los clavos}
+
+\begin{center}
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/electroiman_clavos.jpg}
+    {\scriptsize (a) Bobina con núcleo.}
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/iman_permanente_clavos.jpg}
+    {\scriptsize (b) Imán permanente.}
+  \end{minipage}
+  \captionof{figure}{Atracción de clavos por las dos fuentes magnéticas.}
+  \label{fig:clavos}
+\end{center}
+
+La figura~\ref{fig:clavos} confirma que ambos montajes atraen hierro. En el electroimán, un grupo denso de clavos permanece sostenido cerca del polo mientras circula corriente. Con el imán recto, varios clavos forman una cadena extremo con extremo. Este segundo comportamiento muestra magnetización inducida: cada clavo se polariza temporalmente y puede atraer al siguiente.
+
+\resultadovisual{La evidencia confirma atracción y magnetización inducida, pero no permite comparar fuerzas. La distancia, el contacto, el voltaje y el número inicial de clavos no fueron controlados simultáneamente en una misma toma.}
+
+La observación concuerda con el funcionamiento de ambas fuentes. En el electroimán se espera que un aumento de voltaje eleve la corriente y el campo según las ecuaciones~\eqref{eq:solenoide} y \eqref{eq:ohm}, aumentando la atracción hasta que intervengan calentamiento, saturación o limitación de corriente. En el imán permanente, el voltaje no es una variable aplicable.
+
+\subsection{Campo de la bobina}
+
+\begin{center}
+  \includegraphics[width=0.94\columnwidth]{imagenes/campo_bobina.jpg}
+  \captionof{figure}{Patrón de limaduras alrededor de la bobina de 300 espiras.}
+  \label{fig:campo}
+\end{center}
+
+En la figura~\ref{fig:campo}, las limaduras forman arcos que salen de una región polar y retornan hacia la opuesta. La distribución es aproximadamente simétrica respecto del eje de la bobina y presenta mayor concentración cerca de los extremos. La topología coincide con el campo dipolar esperado de un solenoide finito con núcleo.
+
+
+La placa visible identifica 300 espiras, resistencia nominal de \SI{0.8}{\ohm}, inductancia de \SI{2}{\milli\henry} y corriente máxima de \SI{4}{\ampere}. Estos datos de placa no reemplazan la corriente real del ensayo, que no aparece registrada. Al aumentar el voltaje se espera un patrón de igual geometría pero más definido, no una forma distinta; las imágenes disponibles muestran una sola condición y no permiten comprobar esa tendencia.
+
+\subsection{Motores de corriente continua}
+
+\begin{center}
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/motor_permanente_movimiento.jpg}
+    {\scriptsize (a) Campo permanente.}
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/motor_electroiman_movimiento.jpg}
+    {\scriptsize (b) Campo electromagnético.}
+  \end{minipage}
+  \captionof{figure}{Fotogramas de los motores en funcionamiento; el desenfoque del rotor evidencia movimiento.}
+  \label{fig:motores}
+\end{center}
+
+Los videos muestran rotación del inducido en los dos montajes. En el motor con electroimán se observa una intervención manual al comienzo de una de las secuencias, compatible con el pequeño impulso permitido por la guía; después el rotor mantiene el giro. La fuerza de la ecuación~\eqref{eq:fuerza} actúa sobre los conductores del rotor y origina el torque de la ecuación~\eqref{eq:torque}; el conmutador conserva el sentido útil del par.
+
+La diferencia principal reside en el origen de $\Phi$ en la ecuación~\eqref{eq:motor}. En el primer motor lo aporta el imán permanente; en el segundo depende de las bobinas de campo y puede regularse o invertirse. Los clips evidencian funcionamiento, pero no contienen una lectura sincronizada de voltaje ni una escala temporal apta para calcular revoluciones por minuto. Por ello no se afirma una razón de velocidades entre configuraciones.
+
+\subsection{Ensayo de diamagnetismo}
+
+El resultado esperado era una pequeña desviación del chorro alejándose de la zona donde el campo magnetico es mayor. Sin embargo, los registros disponibles muestran el imán bajo el agua o separado de una corriente fina, no un acercamiento lateral controlado con una referencia de posición. En consecuencia, \textbf{no es posible confirmar ni descartar experimentalmente la desviación diamagnética} a partir de este material.
+
+% EDITAR: si el grupo recuerda una desviación reproducible, reemplace el párrafo
+% anterior describiendo dirección, repetibilidad y distancia aproximada.
+
+El efecto podría quedar oculto por un chorro demasiado grueso, distancia excesiva, gradiente débil, movimiento de la cámara, vibraciones, corrientes de aire o contacto del imán con el agua. Para repetir la experiencia convendría fijar cámara e imán, usar un fondo cuadriculado, comparar varias veces una condición ``imán lejos'' con otra ``imán cerca'' y evitar tocar el chorro.
+
+\subsection{Efecto esperado del voltaje}
+
+\begin{center}
+\scriptsize
+\begin{tabularx}{\columnwidth}{@{}>{\bfseries}p{0.22\columnwidth}XX@{}}
+\toprule
+Experiencia & Predicción al subir $V$ & Alcance del registro \\
+\midrule
+Electroimán & Mayor $I$, $B$ y atracción, con límites térmicos y de saturación. & Hay atracción, pero no una serie controlada. \\
+Bobina y limaduras & Misma topología; patrón potencialmente más marcado. & Solo una condición visible. \\
+Motor con imán & Mayor corriente de arranque y, en general, mayor rapidez de régimen. & Se ve giro, sin RPM ni tensión sincronizada. \\
+Motor con electroimán & Aumentan corriente de armadura y posiblemente flujo; crece el torque antes de saturación. & Se ve giro, sin comparación cuantitativa. \\
+Agua & No corresponde variar voltaje. & Ensayo no verificable. \\
+\bottomrule
+\end{tabularx}
+\captionof{table}{Predicciones y evidencia disponible para cada experiencia.}
+\label{tab:voltaje}
+\end{center}
+
+\subsection{Fuentes de incertidumbre}
+
+Las principales limitaciones fueron la ausencia de mediciones de corriente y distancia, la falta de conteos repetidos de clavos, el paralaje de los instrumentos analógicos, el desconocimiento de la conexión exacta de las bobinas del segundo motor y la falta de una medición de rapidez. Además, la resistencia del devanado cambia al calentarse, el núcleo puede presentar histéresis y saturación, y la fricción condiciona el arranque. Estas variables impiden convertir las observaciones en una prueba cuantitativa de proporcionalidad con el voltaje.
+
+\section{Conclusiones}
+
+Se comprobó cualitativamente que un imán permanente y una bobina con núcleo pueden atraer clavos, y que los clavos adquieren magnetización inducida capaz de formar cadenas. El patrón de limaduras fue consistente con un campo dipolar de solenoide y confirmó que la geometría del campo se concentra alrededor de los polos.
+
+Los dos montajes de motor transformaron energía eléctrica en movimiento rotacional. La observación es coherente con la fuerza sobre un conductor recorrido por corriente y con el torque sobre el inducido. La ausencia de RPM, corriente y voltaje sincronizados impidió cuantificar cómo cambió la rapidez al elevar la tensión.
+
+El diamagnetismo se diferenció del ferromagnetismo por el signo y la magnitud de la susceptibilidad, la ausencia de remanencia y la dirección de la fuerza en un gradiente de campo. No se contó con evidencia válida para decidir si el chorro de agua se desvió; repetir el montaje con referencias fijas permitiría evaluar el efecto. En conjunto, el laboratorio respaldó las predicciones cualitativas sobre fuentes de campo, materiales y efecto motor, pero requiere un registro sistemático para establecer relaciones cuantitativas.
+
+\end{multicols}
+
+\bibliographystyle{apalike}
+\bibliography{Referencias}
+
+\end{document}

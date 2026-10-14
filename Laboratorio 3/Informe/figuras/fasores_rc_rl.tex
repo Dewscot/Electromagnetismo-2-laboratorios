@@ -1,0 +1,24 @@
+\begingroup
+\newcommand{\panelFasor}[5]{%
+ \begin{scope}[shift={(#1,#2)}]
+  \pgfmathsetmacro{\xx}{cos(#3)}
+  \pgfmathsetmacro{\yy}{sin(#3)}
+  \pgfmathsetmacro{\aa}{abs(#3)}
+  \draw[-{Stealth[length=2mm]},gray] (0,0) -- (1.25,0) node[right,font=\scriptsize] {$\widetilde I$};
+  \draw[-{Stealth[length=2mm]},udecazul,thick] (0,0) -- (\xx,0);
+  \node[below,font=\scriptsize,text=udecazul] at (0.32,0) {$\widetilde V_R$};
+  \draw[-{Stealth[length=2mm]},udecazul,thick] (0,0) -- (0,\yy) node[left,font=\scriptsize] {$\widetilde V_{#5}$};
+  \draw[gray,densely dashed] (\xx,0)--(\xx,\yy)--(0,\yy);
+  \draw[-{Stealth[length=2mm]},observado,very thick] (0,0)--(\xx,\yy) node[right,font=\scriptsize] {$\widetilde V_g$};
+  \node[font=\small\bfseries] at (0.6,1.45) {#4};
+  \node[font=\scriptsize] at (0.6,-1.35) {$|\psi|=\pgfmathprintnumber[fixed,precision=1,use comma]{\aa}^{\circ}$};
+ \end{scope}}
+\begin{tikzpicture}[x=1.7cm,y=1.5cm]
+ \panelFasor{0}{0}{-\FaseRCA}{RC: 500 Hz}{C}
+ \panelFasor{3.25}{0}{-\FaseRCB}{RC: 1 kHz}{C}
+ \panelFasor{6.5}{0}{-\FaseRCC}{RC: 8 kHz}{C}
+ \panelFasor{0}{-3.2}{\FaseRLA}{RL: 10 kHz}{L}
+ \panelFasor{3.25}{-3.2}{\FaseRLB}{RL: 50 kHz}{L}
+ \panelFasor{6.5}{-3.2}{\FaseRLC}{RL: 100 kHz}{L}
+\end{tikzpicture}
+\endgroup

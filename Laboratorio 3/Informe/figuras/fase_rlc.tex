@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\begin{axis}[width=0.92\textwidth,height=6.2cm,xmin=1,xmax=50,ymin=-90,ymax=90,
+ xlabel={$f$ (kHz)},ylabel={$\varphi_V$ (grados)},grid=major,ytick={-90,-45,0,45,90},
+ tick label style={font=\small},label style={font=\small},
+ legend style={font=\small,at={(0.98,0.05)},anchor=south east}]
+ \addplot[udecazul,very thick,domain=1:50,samples=200]{atan((2*pi*x*\LRLC-1000000/(2*pi*x*\CRLC))/(1000*\RRLC))};
+ \addlegendentry{Modelo RLC ideal}
+ \addplot[gray,dashed] coordinates {(\FRes,-90) (\FRes,90)};
+ \addlegendentry{$f_{r,\mathrm{teo}}\approx16{,}8$ kHz}
+ \addplot[observado,densely dotted,thick] coordinates {(\FDial,-90) (\FDial,90)};
+ \addlegendentry{Dial $\approx17$ kHz (orientativo)}
+\end{axis}
+\end{tikzpicture}

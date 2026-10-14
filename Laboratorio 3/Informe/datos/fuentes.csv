@@ -1,0 +1,17 @@
+﻿circuito,f_nominal_Hz,registro,prueba,archivo_original,archivo_en_proyecto
+RC,500,grafica,1,Circuito RC/RC 500 Grafica.jpeg,imagenes/rc_500_grafica.jpeg
+RC,500,escala,1,Circuito RC/RC 500 time div.jpeg,imagenes/rc_500_escala.jpeg
+RC,1000,grafica,2,Circuito RC/RC 1000 grafica segunda prueba.jpeg,imagenes/rc_1000_grafica.jpeg
+RC,1000,escala,2,Circuito RC/RC 1000 time div segunda prueba.jpeg,imagenes/rc_1000_escala.jpeg
+RC,8000,grafica,2,Circuito RC/RC 8000 grafico segunda prueba.jpeg,imagenes/rc_8000_grafica.jpeg
+RC,8000,escala,2,Circuito RC/RC 8000 time div segundo prueba .jpeg,imagenes/rc_8000_escala.jpeg
+RL,10000,grafica,2,Circuito RL/RL 10 kHz grafica segunda prueba.jpeg,imagenes/rl_10k_grafica.jpeg
+RL,10000,escala,2,Circuito RL/RL 10 kHz time div segunda prueba.jpeg,imagenes/rl_10k_escala.jpeg
+RL,50000,grafica,2,Circuito RL/RL 50 kHz grafica segunda prueba.jpeg,imagenes/rl_50k_grafica.jpeg
+RL,50000,escala,2,Circuito RL/RL 50 kHz time div segunda prueba.jpeg,imagenes/rl_50k_escala.jpeg
+RL,100000,grafica,2,Circuito RL/RL 100 kHz grafica segunda prueba.jpeg,imagenes/rl_100k_grafica.jpeg
+RL,100000,escala,2,Circuito RL/RL 100 kHz time div segunda prueba.jpeg,imagenes/rl_100k_escala.jpeg
+RC,,alternativa,,Circuito RC/RC 500 grafica segunda prueba.jpeg,imagenes/rc_500_alternativa.jpeg
+RLC,,resonancia,,Circuito RLC/Lo más cercano que pude de la resonancia.jpeg,imagenes/rlc_pantalla.jpeg
+RLC,,resonancia,,Circuito RLC/Valor de la frecuencia.jpeg,imagenes/rlc_frecuencia.jpeg
+RLC,,resonancia,,Circuito RLC/Vista general del instrumento.jpeg,imagenes/rlc_vista_general.jpeg

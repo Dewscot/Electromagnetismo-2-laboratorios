@@ -1,0 +1,52 @@
+BASE EDITABLE PARA OVERLEAF - LABORATORIO 3
+
+1. En Overleaf: New Project > Upload Project > seleccionar el ZIP.
+2. Archivo principal: main.tex. Compilador: pdfLaTeX.
+3. El proyecto usa BibTeX y paquetes habituales de Overleaf. No requiere
+   shell-escape, archivos externos ni conexión a una API.
+
+QUÉ EDITAR
+- Portada, fecha y redacción: main.tex. Se conservaron autores, docente,
+  ayudantes, sección y logos del proyecto anterior; revisar que correspondan.
+- Tablas: archivos de tablas/. Son LaTeX normal y se pueden modificar a mano.
+- Parámetros y puntos de las gráficas: datos/parametros.tex.
+- Diagramas y gráficas: figuras/*.tex. Se actualizan al compilar main.tex.
+- Referencias: Referencias.bib.
+- vista_previa/informe.pdf permite revisar la versión entregada. Los otros
+  PDF de esa carpeta son exportaciones de las gráficas; main.tex usa los
+  fuentes .tex, por lo que esos PDF no son necesarios para compilar.
+
+BASE DE LOS RESULTADOS
+Las tablas principales usan T=1/f y fh=1/(f*H), suponiendo correctas las
+frecuencias nominales. Es una reconstrucción de tiempos, no una verificación
+de CAL. La fase usa 2*pi*delta_h/H y conserva las distancias fotográficas.
+RC 500 Hz utiliza la primera prueba, medida en el tramo continuo izquierdo.
+Las demás filas utilizan la segunda prueba. Se conserva la otra lectura de
+RC 500 Hz en el anexo y se incluyen las fotografías de ambas pruebas.
+La resistencia RL se supone de 1,6 kOhm. Cambiar si existe un registro distinto.
+Las amplitudes de los fasores son normalizadas; no son voltajes medidos.
+
+RESONANCIA
+Para la guía: C=0,01 microF=1e-8 F y L=9 mH=0,009 H.
+La frecuencia nominal calculada es 16,776 kHz. El dial fotografiado se lee
+solo de forma orientativa, aproximadamente 1,7 en el rango de 10 kHz:
+aproximadamente 17 kHz. No se asigna una frecuencia experimental exacta.
+No se utilizó como resultado la captura de la calculadora porque sus campos
+de unidades no corresponden a los componentes nominales indicados en la guía.
+La curva de fase RLC y sus fasores son teóricos; no representan un barrido medido.
+
+PENDIENTES VISIBLES
+- Completar la fecha de entrega.
+- Revisar nombres, sección y parámetros reales de componentes.
+- Incorporar voltajes únicamente si existe un registro confiable; indicar
+  si son pico, pico a pico o eficaces. La sección correspondiente está marcada.
+- Leer y adaptar resumen, análisis y conclusiones antes de entregar.
+
+CORRECCIÓN DEL INFORME ANTERIOR
+Se mantuvo el estilo de artículo con logos, referencias y tablas numeradas.
+Se hizo el título más descriptivo, se definieron las magnitudes antes de
+utilizarlas y se colocó la discusión de calibración en el análisis.
+
+datos/mediciones.csv conserva entradas y cálculos con más dígitos.
+datos/fuentes.csv identifica las fotografías originales y sus copias en el ZIP.
+Los CSV son de apoyo: si se editan, NO cambian automáticamente las tablas.

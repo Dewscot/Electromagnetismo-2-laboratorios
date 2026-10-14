@@ -1,0 +1,43 @@
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{circuitikz}[american]
+ \draw (0,0) to[sV,l=$v_g$] (0,3)
+  to[C,l=$C$,i>^=$i$] (3,3) to[R] (3,0) -- (0,0);
+ \draw (0,3) node[circ]{} node[above left]{CH1};
+ \draw (3,3) node[circ]{} node[above right]{CH2};
+ \draw (1.5,0) node[ground]{};
+ \node[left] at (2.7,1.5) {$R$};
+ \node[right] at (3.3,1.5) {$v_R$};
+\end{circuitikz}}
+\par\small (a) RC.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{circuitikz}[american]
+ \draw (0,0) to[sV,l=$v_g$] (0,3)
+  to[L,l=$L$,i>^=$i$] (3,3) to[R] (3,0) -- (0,0);
+ \draw (0,3) node[circ]{} node[above left]{CH1};
+ \draw (3,3) node[circ]{} node[above right]{CH2};
+ \draw (1.5,0) node[ground]{};
+ \node[left] at (2.7,1.5) {$R$};
+ \node[right] at (3.3,1.5) {$v_R$};
+\end{circuitikz}}
+\par\small (b) RL.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\textwidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{circuitikz}[american]
+ \draw (0,0) to[sV,l=$v_g$] (0,3)
+  to[L,l=$L$,i>^=$i$] (2,3) to[C,l=$C$] (4,3)
+  to[R] (4,0) -- (0,0);
+ \draw (0,3) node[circ]{} node[above left]{CH1};
+ \draw (4,3) node[circ]{} node[above right]{CH2};
+ \draw (2,0) node[ground]{};
+ \node[left] at (3.7,1.5) {$R$};
+ \node[right] at (4.3,1.5) {$v_R$};
+\end{circuitikz}}
+\par\small (c) RLC en serie.
+\end{minipage}

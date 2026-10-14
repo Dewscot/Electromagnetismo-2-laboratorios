@@ -1,0 +1,19 @@
+% Parámetros para las gráficas, en unidades indicadas.
+% Las tablas y el texto se editan aparte: no se recalculan desde este archivo.
+\newcommand{\RRC}{1.6} % kOhm
+\newcommand{\CRC}{10} % nF
+\newcommand{\RRL}{1.6} % kOhm, supuesto
+\newcommand{\LRL}{9} % mH
+\newcommand{\RRLC}{1} % kOhm
+\newcommand{\LRLC}{9} % mH
+\newcommand{\CRLC}{10} % nF
+\newcommand{\FDial}{17} % kHz, lectura orientativa
+\pgfmathsetmacro{\FRes}{1000/(2*pi*sqrt(\LRLC*\CRLC))}
+\newcommand{\PuntosRC}{(0.5,86.735751) (1,89.454545) (8,50.855019)}
+\newcommand{\PuntosRL}{(10,-23.376623) (50,-57.525773) (100,-74.226804)}
+\newcommand{\FaseRCA}{86.735751}
+\newcommand{\FaseRCB}{89.454545}
+\newcommand{\FaseRCC}{50.855019}
+\newcommand{\FaseRLA}{23.376623}
+\newcommand{\FaseRLB}{57.525773}
+\newcommand{\FaseRLC}{74.226804}
