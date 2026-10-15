@@ -1,0 +1,19 @@
+\begin{thebibliography}{}
+
+\bibitem[{Departamento de Física}, 2026]{guia2026}
+{Departamento de Física} (2026).
+\newblock {\em Laboratorio 3: Circuitos {RC} y {RL}. Medida de desfase y resonancia en circuito {RLC} en serie}.
+\newblock Universidad de Concepción.
+\newblock Edición: C. Valdés-Cruces.
+
+\bibitem[{Hameg}, sf]{manualhameg}
+{Hameg} (s.f.).
+\newblock {\em Manual del osciloscopio {HM203-7}}.
+\newblock Versión en español. Apartados de base de tiempos y medición de fase.
+
+\bibitem[Young and Freedman, 2009]{young2009}
+Young, H.~D. and Freedman, R.~A. (2009).
+\newblock {\em Física universitaria con física moderna}, volume~2.
+\newblock Pearson Educación, México, 12 edition.
+
+\end{thebibliography}
