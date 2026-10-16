@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1792103201.52325 "main.aux" "main.bbl" "main" 1792103206.60299 0
+["bibtex main"] 1792109518.20627 "main.aux" "main.bbl" "main" 1792109522.74669 0
   "./Referencias.bib" 1791605018 674 c7a1b5d15d8f3f0c3ab8563f84c38a11 ""
   "c:/texlive/2026/texmf-dist/bibtex/bst/base/apalike.bst" 1790953250 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1792103205 9193 27a7c3ac03eeb3f943695a9ae5c4a9ed "pdflatex"
+  "main.aux" 1792109521 8913 6a27164b6412075b3d8fd5acdc681f93 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792103202.12011 "c:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 3/Informe/main.tex" "main.pdf" "main" 1792103206.60367 0
-  "c:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 3/Informe/main.tex" 1791605138 19027 1a08864bc436b38893f316eb37703fb9 ""
+["pdflatex"] 1792109518.64881 "c:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 3/Informe/main.tex" "main.pdf" "main" 1792109522.74721 0
+  "c:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 3/Informe/main.tex" 1792109512 18835 1abee908b098f9969ae357b3984ad6ac ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1790955632 2375 baa924870cfb487815765f9094cf3728 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1790955632 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1790955632 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -289,10 +289,10 @@
   "imagenes/rc_500_grafica.jpeg" 1791605140 130153 416b60c4c2b6140498c54b78e07653eb ""
   "imagenes/rlc_frecuencia.jpeg" 1791605140 170730 739ce1c1710dce09fe0e9721054c8b05 ""
   "imagenes/rlc_pantalla.jpeg" 1791605140 166897 777af82f6657b977ac329d2da3771ae7 ""
-  "main.aux" 1792103205 9193 27a7c3ac03eeb3f943695a9ae5c4a9ed "pdflatex"
-  "main.bbl" 1792103202 719 a8f38ed07b6e7dea8967b66ec651bc2b "bibtex main"
-  "main.out" 1792103205 3287 92cc90d6fb72d88e54364c19698ec11a "pdflatex"
-  "main.tex" 1791605138 19027 1a08864bc436b38893f316eb37703fb9 ""
+  "main.aux" 1792109521 8913 6a27164b6412075b3d8fd5acdc681f93 "pdflatex"
+  "main.bbl" 1792109518 719 a8f38ed07b6e7dea8967b66ec651bc2b "bibtex main"
+  "main.out" 1792109521 3168 3db5324dfe365cafe1254a42e8704d89 "pdflatex"
+  "main.tex" 1792109512 18835 1abee908b098f9969ae357b3984ad6ac ""
   "tablas/comparacion.tex" 1791605140 714 0ef65755c4d654fe43582675372a8fe9 ""
   "tablas/lecturas.tex" 1791605140 861 59ce259da0358ec6d40582bd3ea5748d ""
   "tablas/rc.tex" 1791605140 855 e401595d8dd5063604205451746a8955 ""

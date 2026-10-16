@@ -505,6 +505,7 @@ INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT c:/texlive/2026/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT c:/texlive/2026/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT c:/texlive/2026/texmf-dist/tex/latex/lm/ts1lmr.fd
@@ -516,7 +517,6 @@ INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/lm/ts1-lmr5.tfm
 INPUT ./figuras/montajes.tex
 INPUT ./figuras/montajes.tex
 INPUT figuras/montajes.tex
-INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT ./tablas/rc.tex

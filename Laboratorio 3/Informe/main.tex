@@ -30,7 +30,7 @@
 \newcommand{\docente}{Juan Staforelli Vivanco}
 \newcommand{\ayudante}{Cristóbal Valdés Cruces, Catalina Gidi Chomalí}
 \newcommand{\seccion}{Sección 2}
-\newcommand{\fechaentrega}{Fecha por completar}
+\newcommand{\fechaentrega}{\today}
 \hypersetup{colorlinks=true,linkcolor=udecazul,citecolor=udecazul,urlcolor=udecazul,
   pdftitle={Laboratorio 3: Desfase y resonancia},pdfauthor={Nicolas Ruiz y Julio Bastias}}
 \pagestyle{fancy}
@@ -81,78 +81,92 @@ Se estudió la diferencia de fase entre la corriente y el voltaje aplicado en ci
 
 \begin{multicols}{2}
 \raggedcolumns
-\section{Introducción}
-En corriente alterna, un condensador y una bobina modifican tanto la amplitud como la fase de la corriente. En un circuito RC la corriente adelanta al voltaje aplicado, mientras que en un circuito RL se retrasa. En un circuito RLC en serie, ambos efectos pueden compensarse y dar lugar a la resonancia \cite{young2009}.
 
-Esta experiencia siguió la guía del Laboratorio 3 \cite{guia2026}. Se utilizaron las dos señales del osciloscopio para obtener el desfase de la corriente respecto del generador y comparar su variación con la frecuencia. Además, se examinó la proximidad a la resonancia en el montaje RLC.
+\section{Introducción}
+
+En corriente alterna, un condensador y una bobina modifican tanto la amplitud como la fase de la corriente. 
+En un circuito RC la corriente adelanta al voltaje aplicado, mientras que en un circuito RL se retrasa.
+ En un circuito RLC en serie, ambos efectos pueden compensarse y dar lugar a la resonancia \cite{young2009}.
+
+En esta experiencia se utilizaron los montajes RC, RL y RLC descritos en la guía del Laboratorio 3 \cite{guia2026}.
+ Las mediciones se basaron en la comparación de dos señales observadas simultáneamente en el osciloscopio: el voltaje aplicado por el generador y la caída de tensión en el resistor.
 
 \section{Objetivos}
-Medir y comparar con el modelo ideal el adelanto de la corriente en RC y su retraso en RL para las frecuencias indicadas en la guía. Reconocer la condición de resonancia de un circuito RLC en serie y relacionarla con sus diagramas de fasores.
+Medir y comparar con el modelo ideal el adelanto de la corriente en RC y su retraso en RL para las frecuencias indicadas en la guía.
+ Reconocer la condición de resonancia de un circuito RLC en serie y relacionarla con sus diagramas de fasores.
+
 
 \section{Marco teórico}
-\subsection{Señales y medición de fase}
-En un resistor ideal, el voltaje $v_R(t)$ está en fase con la corriente $i(t)$, puesto que
+
+\subsection{Medición del desfase}
+
+En un resistor ideal, el voltaje $v_R(t)=R\,i(t)$ está en fase con la corriente. Por ello, comparar $v_R(t)$ con el voltaje del generador $v_g(t)$ permite determinar el desfase de la corriente. Si $\Delta h$ es la separación horizontal entre puntos equivalentes de ambas señales y $H$ la extensión de un período, ambas medidas en divisiones, se obtiene
 \begin{equation}
-  v_R(t)=R\,i(t).
-\end{equation}
-Por ello, comparar $v_R(t)$ con el voltaje del generador $v_g(t)$ permite estudiar el desfase de la corriente. Si $\Delta h$ es la separación horizontal de puntos equivalentes de ambas ondas y $H$ la distancia de un período de una misma señal, ambas en divisiones, entonces
-\begin{equation}
-  |\Delta\varphi|=2\pi\frac{\Delta t}{T}=2\pi\frac{\Delta h}{H}.
+  |\Delta\varphi|=2\pi\frac{\Delta t}{T}
+  =2\pi\frac{\Delta h}{H}.
   \label{eq:fase}
 \end{equation}
-Aquí $\Delta t$ es la separación temporal y $T$ el período. El cociente determina la magnitud del ángulo; el orden de las señales determina quién adelanta a quién \cite{manualhameg}.
+Aquí $\Delta t$ es la separación temporal y $T$ el período. El cociente determina la magnitud del desfase, mientras que el orden de las señales permite identificar el adelanto o retraso \cite{manualhameg}.
 
-\subsection{Reactancias y fasores}
-Para frecuencia $f$ y frecuencia angular $\omega=2\pi f$, las reactancias inductiva y capacitiva son
+\subsection{Reactancias y desfases en RC y RL}
+
+Para una frecuencia angular $\omega=2\pi f$, las reactancias inductiva y capacitiva son
 \begin{equation}
   X_L=\omega L,\qquad X_C=\frac{1}{\omega C}.
   \label{eq:reactancias}
 \end{equation}
-Tomando la corriente como referencia horizontal, $\widetilde V_R$ está en fase con ella, $\widetilde V_L$ adelanta \SI{90}{\degree} y $\widetilde V_C$ se retrasa \SI{90}{\degree}. El voltaje aplicado es la suma de estos fasores \cite{young2009}.
+Tomando la corriente como referencia, el fasor $\widetilde V_R$ está en fase con ella, $\widetilde V_L$ adelanta \SI{90}{\degree} y $\widetilde V_C$ se retrasa \SI{90}{\degree}. El voltaje aplicado corresponde a la suma de estos fasores \cite{young2009}.
 
-\subsection{Circuitos RC y RL}
-Las impedancias ideales son $Z_{RC}=R-jX_C$ y $Z_{RL}=R+jX_L$, donde $j^2=-1$. La fase de la corriente respecto del generador, $\psi=\arg\widetilde I-\arg\widetilde V_g$, resulta
+Las impedancias ideales de los circuitos RC y RL son $Z_{RC}=R-jX_C$ y $Z_{RL}=R+jX_L$, con $j^2=-1$. Definiendo la fase de la corriente respecto del generador como $\psi=\arg\widetilde I-\arg\widetilde V_g$, resulta
 \begin{align}
- \psi_{RC}&=+\arctan\!\left(\frac{1}{\omega RC}\right),\label{eq:rc}\\
- \psi_{RL}&=-\arctan\!\left(\frac{\omega L}{R}\right).\label{eq:rl}
+  \psi_{RC}&=+\arctan\!\left(\frac{1}{\omega RC}\right),
+  \label{eq:rc}\\
+  \psi_{RL}&=-\arctan\!\left(\frac{\omega L}{R}\right).
+  \label{eq:rl}
 \end{align}
-El signo positivo indica adelanto y el negativo, retraso. Las tablas presentan la magnitud $|\Delta\varphi|=|\psi|$ y describen el sentido por separado.
+El signo positivo representa adelanto y el negativo, retraso. En las tablas se informa la magnitud $|\Delta\varphi|=|\psi|$ y se distingue el sentido del desfase.
 
 \subsection{Resonancia en RLC}
-En serie, $Z=R+j(X_L-X_C)$. La fase del voltaje aplicado respecto de la corriente es
+
+Para un circuito RLC en serie, la impedancia es $Z=R+j(X_L-X_C)$. La fase del voltaje aplicado respecto de la corriente, de signo opuesto a $\psi$, está dada por
 \begin{equation}
-  \varphi_V=\arctan\!\left(\frac{\omega L-1/(\omega C)}{R}\right).
+  \varphi_V=\arctan\!\left(
+  \frac{\omega L-1/(\omega C)}{R}
+  \right).
   \label{eq:rlc}
 \end{equation}
-Esta convención tiene signo opuesto a $\psi$. En resonancia $X_L=X_C$, de modo que
+La resonancia ocurre cuando $X_L=X_C$, condición que determina
 \begin{equation}
   f_r=\frac{1}{2\pi\sqrt{LC}}.
   \label{eq:resonancia}
 \end{equation}
-En el modelo ideal, $\varphi_V=0$, la corriente y el generador están en fase y $\widetilde V_g=\widetilde V_R$. Para $f<f_r$ predomina el comportamiento capacitivo y para $f>f_r$, el inductivo.
+En el modelo ideal, $\varphi_V=0$, la corriente y el voltaje aplicado están en fase y $\widetilde V_g=\widetilde V_R$. Por debajo de $f_r$ predomina el comportamiento capacitivo y por encima, el inductivo.
+
 
 \section{Materiales}
 \begin{itemize}
- \item Generador de señales senoidales, modelo 062.101.
- \item Osciloscopio de dos canales Hameg HM203-7 y dos puntas de prueba.
- \item Cajas de resistencias y condensadores.
- \item Bobina de 600 vueltas, $L=\SI{9}{\milli\henry}$ nominal.
- \item Cables de conexión.
+  \item Generador de señales senoidales, modelo 062.101.
+  \item Osciloscopio de dos canales Hameg HM203-7 y dos puntas de prueba.
+  \item Cajas de resistencias y condensadores.
+  \item Bobina de 600 vueltas, $L=\SI{9}{\milli\henry}$ nominal.
+  \item Cables de conexión.
 \end{itemize}
-Para RC se emplean los valores nominales de la guía: $R=\SI{1.6}{\kilo\ohm}$ y $C=\SI{0.01}{\micro\farad}$. Para el análisis RL se supone la misma resistencia. En RLC la guía indica $R=\SI{1}{\kilo\ohm}$, $C=\SI{0.01}{\micro\farad}$ y $L=\SI{9}{\milli\henry}$ \cite{guia2026}.
-% REVISAR: R de RL se supone igual a RC; cambiar si se dispone de otro registro.
+
+Para RC se consideraron los valores nominales $R=\SI{1.6}{\kilo\ohm}$ y $C=\SI{0.01}{\micro\farad}$; en RL se supuso la misma resistencia para los cálculos. En RLC se utilizaron $R=\SI{1}{\kilo\ohm}$, $C=\SI{0.01}{\micro\farad}$ y $L=\SI{9}{\milli\henry}$, según la guía \cite{guia2026}.
 
 \section{Montaje y procedimiento}
-Los esquemas de la figura~\ref{fig:montajes} representan las conexiones de referencia. CH1 registra el generador y CH2 el voltaje del resistor. Ambos canales comparten el nodo de referencia del circuito; el resistor permite representar la fase de la corriente.
 
-Se realizaron dos registros por condición. En RC se consideraron \SI{500}{\hertz}, \SI{1}{\kilo\hertz} y \SI{8}{\kilo\hertz}; en RL, \SI{10}{\kilo\hertz}, \SI{50}{\kilo\hertz} y \SI{100}{\kilo\hertz}. Se fotografiaron las señales y la escala de tiempo, y se eligieron los tramos donde ambas trazas podían distinguirse. Se estimaron $H$ y $\Delta h$ con corrección de perspectiva y se aplicó la ecuación~\eqref{eq:fase}.
+Los circuitos RC, RL y RLC en serie se montaron según los esquemas de la figura~\ref{fig:montajes}. El canal CH1 registró el voltaje del generador $v_g$ y CH2 el voltaje del resistor $v_R$, utilizando una referencia común.
 
-Para RLC se varió la frecuencia buscando la mayor coincidencia de fase entre las señales. El registro conservado permite describir la proximidad a esa condición y estimar la frecuencia mediante el dial del generador.
+En RC se estudiaron las frecuencias nominales de \SI{500}{\hertz}, \SI{1}{\kilo\hertz} y \SI{8}{\kilo\hertz}; en RL, \SI{10}{\kilo\hertz}, \SI{50}{\kilo\hertz} y \SI{100}{\kilo\hertz}. Se conservaron fotografías de las señales y los controles del osciloscopio. A partir de ellas se estimaron $H$ y $\Delta h$, corrigiendo la perspectiva, y se calculó el desfase mediante la ecuación~\eqref{eq:fase}.
+
+Para RLC se varió la frecuencia buscando la coincidencia de fase entre ambas señales. La frecuencia correspondiente se estimó a partir del dial fotografiado del generador.
 \end{multicols}
 
 \begin{center}
  \input{figuras/montajes.tex}
- \captionof{figure}{Esquemas de referencia de los circuitos RC, RL y RLC en serie. Se indica la medición de $v_g$ con CH1 y de $v_R$ con CH2; los diagramas describen la conexión eléctrica y no la disposición física de los componentes.}
+
+\captionof{figure}{Esquemas de conexión de los circuitos RC, RL y RLC en serie. No representan la disposición física de los componentes.}
  \label{fig:montajes}
 \end{center}
 
