@@ -1,16 +1,37 @@
+
 \begin{table}[htbp]
 \centering
-\small
-\setlength{\tabcolsep}{6pt}
-\caption{Circuito RL: desfase fotográfico y tiempos reconstruidos suponiendo correcta la frecuencia nominal.}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Circuito RL: la corriente se retrasa respecto de $v_g$. Lecturas fotográficas, tiempos estimados y comparación con el modelo ideal.}
 \label{tab:rl}
-\begin{tabular}{ccccccc}
+\begin{tabular}{ccccccccc}
 \toprule
-\shortstack{$f$\\(kHz)}  & \shortstack{$\Delta h$\\(div)} & \shortstack{$f_{h,\mathrm{est}}$\\(s/div)} & \shortstack{$\Delta t_{\mathrm{est}}$\\(s)} & \shortstack{$T_{\mathrm{est}}$\\(s)} & \shortstack{$|\Delta\varphi|$\\(rad)} & Resultado \\
+\shortstack{$f$\\(kHz)} &
+\shortstack{$\Delta h$\\(div)} &
+\shortstack{$H$\\(div)} &
+\shortstack{$f_{h,\mathrm{est}}$\\(s/div)} &
+\shortstack{$\Delta t_{\mathrm{est}}$\\(s)} &
+\shortstack{$T_{\mathrm{est}}$\\(s)} &
+\shortstack{$|\Delta\varphi|_{\mathrm{foto}}$\\(rad; grados)} &
+\shortstack{$|\psi|_{\mathrm{teo}}$\\(grados)} &
+\shortstack{$\delta$\\(grados)} \\
 \midrule
-10 & \num{0.10} & \num{6.49e-05} & \num{6.49e-06} & \num{1.00e-04} & \num{0.41} & $i$ se retrasa respecto de $v_g$ \\
-50 & \num{0.31} & \num{1.03e-05} & \num{3.20e-06} & \num{2.00e-05} & \num{1.00} & $i$ se retrasa respecto de $v_g$ \\
-100 & \num{0.20} & \num{1.03e-05} & \num{2.06e-06} & \num{1.00e-05} & \num{1.30} & $i$ se retrasa respecto de $v_g$ \\
+10 & \num{0.10} & \num{1.54} &
+\num{6.49e-5} & \num{6.49e-6} &
+\num{1.00e-4} & \num{0.41}; \num{23.4} &
+\num{19.5} & \num{3.9} \\
+
+50 & \num{0.31} & \num{1.94} &
+\num{1.03e-5} & \num{3.20e-6} &
+\num{2.00e-5} & \num{1.00}; \num{57.5} &
+\num{60.5} & \num{-3.0} \\
+
+100 & \num{0.20} & \num{0.97} &
+\num{1.03e-5} & \num{2.06e-6} &
+\num{1.00e-5} & \num{1.30}; \num{74.2} &
+\num{74.2} & \num{0.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
