@@ -27,7 +27,7 @@ def ols(x,y):
     residuals=[yy-(a*xx+b) for xx,yy in zip(x,y)]
     sse=sum(r*r for r in residuals); s2=sse/(n-2)
     return dict(a=a,b=b,ua=math.sqrt(s2/ss),ub=math.sqrt(s2*(1/n+xm*xm/ss)),
-                r2=1-sse/sum((yy-ym)**2 for yy in y),residuals=residuals,n=n)
+                residuals=residuals,n=n)
 
 RESULTS={}; FITS={}
 for circuit in ['RC','RL']:
@@ -114,9 +114,9 @@ for c in ['RC','RL']:
     q=FITS[c]; conv,unit=(1e6,r'$\mu$F') if c=='RC' else (1e3,'mH')
     place=-math.floor(math.log10(q['u_fit']*conv)) if q['u_fit'] else 3
     fitrows.append(['$C$' if c=='RC' else '$L$',texnum(round(q['parameter']*conv,place))+' '+unit,
-                    texnum(q['u_fit']*conv,1)+' '+unit,texnum(q['E_percent'],3),texnum(q['r2'],6)])
+                    texnum(q['u_fit']*conv,1)+' '+unit,texnum(q['E_percent'],3)])
 table('ajustes.tex','Capacitancia e inductancia obtenidas de los ajustes lineales.','tab:ajustes',
-      ['Magnitud','Valor obtenido',r'$u_{\rm ajuste}$',r'$E$ (\%)',r'$R^2$'],fitrows,
+      ['Magnitud','Valor obtenido',r'$u_{\rm ajuste}$',r'$E$ (\%)'],fitrows,
       r'$u_{\rm ajuste}$ es el error estándar del parámetro debido a la dispersión de los puntos en la regresión. '
       r'$E=100\left|(p_{\rm exp}-p_{\rm nom})/p_{\rm nom}\right|$.')
 
@@ -143,6 +143,94 @@ for circuit,symbol in [('RC','C'),('RL','L')]:
 (ROOT/'datos/parametros.tex').write_text('% Generado por recalcular.py\n'+'\n'.join(
     '\\newcommand{\\'+k+'}{'+v+'}' for k,v in macros_tex.items())+'\n',encoding='utf-8')
 (ROOT/'datos/ajustes.json').write_text(json.dumps(FITS,indent=2,ensure_ascii=False),encoding='utf-8')
+
+def exportar_datos_residuos():
+    """Entrega las parejas x,y del ajuste, antes del redondeo de presentación."""
+    destination=ROOT/'datos/residuos'
+    destination.mkdir(exist_ok=True)
+    for circuit in ['RC','RL']:
+        coordinate='1/f_exp (s)' if circuit=='RC' else 'f_exp (Hz)'
+        symbol='C' if circuit=='RC' else 'L'
+        lines=[f'# {circuit}: x = {coordinate}; y = X_{symbol} (ohm)',
+               '# Dos columnas: x y. Cinco puntos, sin redondear las tablas del informe.']
+        for row in RESULTS[circuit]:
+            x=1/row['f_Hz'] if circuit=='RC' else row['f_Hz']
+            lines.append(format(x,'.17g')+' '+format(row['X'],'.17g'))
+        (destination/f'residuos_{circuit}.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+
+    document=r'''\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[provide=*,spanish]{babel}
+\usepackage{lmodern,geometry,amsmath,booktabs,siunitx}
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\sisetup{output-decimal-marker={,},group-digits=false}
+\begin{document}
+\begin{center}
+{\Large\bfseries Datos para el análisis de residuos: RC y RL}
+\end{center}
+Se conservan los cinco puntos de cada circuito empleados en el informe.
+Los archivos de texto contienen dos columnas, $x$ e $y$, y mantienen los valores
+previos al redondeo de las tablas del informe. La frecuencia experimental se obtiene
+del período medido de la señal del generador.
+
+\section*{Circuito RC}
+Para el ajuste lineal se emplean $x=1/f_{\rm exp}$, en segundos,
+e $y=X_C$, en ohmios. Archivo: \texttt{residuos\_RC.txt}.
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+$f_{\rm nom}$ (Hz) & $f_{\rm exp}$ (Hz) & $x=1/f_{\rm exp}$ (s) & $y=X_C$ ($\Omega$) \\
+\midrule
+'''
+    for row in RESULTS['RC']:
+        values=[row['f_nom'],row['f_Hz'],1/row['f_Hz'],row['X']]
+        document+=' & '.join(texnum(value,12) for value in values)+r' \\'+'\n'
+    document+=r'''\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Circuito RL}
+Se emplean $x=f_{\rm exp}$, en hertz, e $y=X_L$, en ohmios.
+Archivo: \texttt{residuos\_RL.txt}.
+\begin{center}
+\small
+\begin{tabular}{ccc}
+\toprule
+$f_{\rm nom}$ (Hz) & $x=f_{\rm exp}$ (Hz) & $y=X_L$ ($\Omega$) \\
+\midrule
+'''
+    for row in RESULTS['RL']:
+        values=[row['f_nom'],row['f_Hz'],row['X']]
+        document+=' & '.join(texnum(value,12) for value in values)+r' \\'+'\n'
+    document+=r'''\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Uso con tu cuaderno}
+Coloca los dos archivos \texttt{.txt} en la carpeta desde la que ejecutas el cuaderno.
+Después de la celda que importa NumPy y define \texttt{graficar\_ajuste}, puedes usar:
+\begin{verbatim}
+for archivo, titulo in [
+    ("residuos_RC.txt", "RC: XC frente a 1/f"),
+    ("residuos_RL.txt", "RL: XL frente a f"),
+]:
+    x, y = np.genfromtxt(archivo).T
+    a, b = np.polyfit(x, y, 1)
+    residuos = graficar_ajuste(
+        x, y, lambda z: a*z + b, titulo
+    )
+\end{verbatim}
+El ajuste $y=ax+b$ utiliza los cinco puntos con intercepto libre.
+Los residuos son $r_i=y_i-(ax_i+b)$ y se expresan en ohmios en ambos circuitos.
+\end{document}
+'''
+    (destination/'Datos_Analisis_Residuos_Lab4.tex').write_text(document,encoding='utf-8')
+
+exportar_datos_residuos()
 assert len(RAW)==30 and all(len(RESULTS[c])==5 for c in RESULTS)
 assert abs(RESULTS['RL'][0]['VG']-1.25)<1e-12 and abs(RESULTS['RL'][0]['VR']-1)<1e-12
 assert all(q['a']>0 for q in FITS.values())

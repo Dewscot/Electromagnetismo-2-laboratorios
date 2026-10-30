@@ -1,0 +1,71 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[provide=*,spanish]{babel}
+\usepackage{lmodern,geometry,amsmath,booktabs,siunitx}
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\sisetup{output-decimal-marker={,},group-digits=false}
+\begin{document}
+\begin{center}
+{\Large\bfseries Datos para el análisis de residuos: RC y RL}
+\end{center}
+Se conservan los cinco puntos de cada circuito empleados en el informe.
+Los archivos de texto contienen dos columnas, $x$ e $y$, y mantienen los valores
+previos al redondeo de las tablas del informe. La frecuencia experimental se obtiene
+del período medido de la señal del generador.
+
+\section*{Circuito RC}
+Para el ajuste lineal se emplean $x=1/f_{\rm exp}$, en segundos,
+e $y=X_C$, en ohmios. Archivo: \texttt{residuos\_RC.txt}.
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+$f_{\rm nom}$ (Hz) & $f_{\rm exp}$ (Hz) & $x=1/f_{\rm exp}$ (s) & $y=X_C$ ($\Omega$) \\
+\midrule
+\num{500} & \num{512.820512821} & \num{0.00195} & \num{3000} \\
+\num{1000} & \num{952.380952381} & \num{0.00105} & \num{1615.38461538} \\
+\num{2000} & \num{2105.26315789} & \num{0.000475} & \num{750} \\
+\num{4000} & \num{4000} & \num{0.00025} & \num{391.304347826} \\
+\num{8000} & \num{8000} & \num{0.000125} & \num{200} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Circuito RL}
+Se emplean $x=f_{\rm exp}$, en hertz, e $y=X_L$, en ohmios.
+Archivo: \texttt{residuos\_RL.txt}.
+\begin{center}
+\small
+\begin{tabular}{ccc}
+\toprule
+$f_{\rm nom}$ (Hz) & $x=f_{\rm exp}$ (Hz) & $y=X_L$ ($\Omega$) \\
+\midrule
+\num{10000} & \num{11111.1111111} & \num{700} \\
+\num{20000} & \num{20202.020202} & \num{1157.89473684} \\
+\num{30000} & \num{30769.2307692} & \num{1913.04347826} \\
+\num{40000} & \num{40816.3265306} & \num{2555.55555556} \\
+\num{50000} & \num{51282.0512821} & \num{3200} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Uso con tu cuaderno}
+Coloca los dos archivos \texttt{.txt} en la carpeta desde la que ejecutas el cuaderno.
+Después de la celda que importa NumPy y define \texttt{graficar\_ajuste}, puedes usar:
+\begin{verbatim}
+for archivo, titulo in [
+    ("residuos_RC.txt", "RC: XC frente a 1/f"),
+    ("residuos_RL.txt", "RL: XL frente a f"),
+]:
+    x, y = np.genfromtxt(archivo).T
+    a, b = np.polyfit(x, y, 1)
+    residuos = graficar_ajuste(
+        x, y, lambda z: a*z + b, titulo
+    )
+\end{verbatim}
+El ajuste $y=ax+b$ utiliza los cinco puntos con intercepto libre.
+Los residuos son $r_i=y_i-(ax_i+b)$ y se expresan en ohmios en ambos circuitos.
+\end{document}

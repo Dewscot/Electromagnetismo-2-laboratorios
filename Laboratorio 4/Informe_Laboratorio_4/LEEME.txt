@@ -47,6 +47,17 @@ FIGURAS Y REGISTROS
   dos fotos de montaje y las fotos de las cajas de resistencia y condensador.
 - Los registros originales se conservan como respaldo de los datos del proyecto.
 
+DATOS PARA EL ANÁLISIS DE RESIDUOS
+- datos/residuos/Datos_Analisis_Residuos_Lab4.tex es un documento LaTeX independiente
+  con las tablas y un ejemplo compatible con tu función graficar_ajuste.
+- datos/residuos/residuos_RC.txt: x = 1/f_exp en segundos; y = XC en ohmios.
+- datos/residuos/residuos_RL.txt: x = f_exp en hertz; y = XL en ohmios.
+- Cada TXT tiene cinco filas y dos columnas; se puede leer con np.genfromtxt.
+  Conserva los valores previos al redondeo de las tablas del informe.
+- Para usarlos en el cuaderno, coloca los TXT en la carpeta desde la que lo ejecutas.
+- Estos tres archivos se regeneran al ejecutar recalcular.py y se entregan
+  separados del contenido del informe.
+
 ANTES DE ENTREGAR
 Revisar los datos personales y docentes y adaptar el texto a la versión final
 que desees presentar. La fecha corresponde al día de compilación.
