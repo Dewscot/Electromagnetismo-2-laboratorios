@@ -1,0 +1,7 @@
+{
+  "R_ohm": 1000,
+  "C_nom_F": 1e-7,
+  "L_nom_H": 0.009,
+  "factor_tiempo": 1,
+  "factor_vertical": 1
+}

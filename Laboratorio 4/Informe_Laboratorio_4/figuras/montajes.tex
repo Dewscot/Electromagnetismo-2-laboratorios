@@ -1,0 +1,21 @@
+\newcommand{\esquema}[3]{%
+\begin{minipage}[t]{0.245\textwidth}\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{circuitikz}[american]
+ \draw (0,0) to[sV,l_=$v_g$] (0,3)
+  -- (1,3) to[#1,l=$#2$] (3,3) to[#3,l_=$#3$] (3,0) -- (0,0);
+ \draw (0,3) node[circ]{} node[above left]{$a$};
+ \draw (3,3) node[circ]{} node[above right]{$c$};
+ \draw (1.5,0) node[circ]{} node[below left]{$b$} node[ground]{};
+ \draw[-{Latex}] (3.6,.35) -- (3.6,2.6) node[midway,right]{$v_c$};
+\end{circuitikz}}\par
+\end{minipage}}
+\esquema{C}{C}{R}
+\esquema{R}{R}{C}
+\esquema{L}{L}{R}
+\esquema{R}{R}{L}
+\par\vspace{2pt}
+\begin{minipage}{.245\textwidth}\centering\small (a) RC: $v_c=v_R$.\end{minipage}
+\begin{minipage}{.245\textwidth}\centering\small (b) RC: $v_c=v_C$.\end{minipage}
+\begin{minipage}{.245\textwidth}\centering\small (c) RL: $v_c=v_R$.\end{minipage}
+\begin{minipage}{.245\textwidth}\centering\small (d) RL: $v_c=v_L$.\end{minipage}

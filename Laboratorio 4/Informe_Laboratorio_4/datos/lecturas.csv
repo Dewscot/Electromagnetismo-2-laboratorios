@@ -1,0 +1,31 @@
+id,circuit,f_nom,signal,channel,dh,time_us,dH,vdiv,probe,ymag,xmag,file,source
+RC-00500-VG,RC,500,VG,CH1,3.9,500,2.5,1,1,1,1,Circuito RC/500 hz/500 VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/500%20hz/500%20VG.jpeg
+RC-00500-VR,RC,500,VR,CH1,3.9,500,0.8,1,1,1,1,Circuito RC/500 hz/500 VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/500%20hz/500%20VR.jpeg
+RC-00500-VC,RC,500,VC,CH1,3.9,500,2.4,1,1,1,1,Circuito RC/500 hz/500 VC.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/500%20hz/500%20VC.jpeg
+RC-01000-VG,RC,1000,VG,CH1,2.1,500,2.5,1,1,1,1,Circuito RC/1 kHz/1000 VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/1%20kHz/1000%20VG.jpeg
+RC-01000-VR,RC,1000,VR,CH1,2.1,500,1.3,1,1,1,1,Circuito RC/1 kHz/1000 VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/1%20kHz/1000%20VR.jpeg
+RC-01000-VC,RC,1000,VC,CH1,2.15,500,2.1,1,1,1,1,Circuito RC/1 kHz/1000 VC.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/1%20kHz/1000%20VC.jpeg
+RC-02000-VG,RC,2000,VG,CH1,4.75,100,2.5,1,1,1,1,Circuito RC/2 kHz/2000 VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/2%20kHz/2000%20VG.jpeg
+RC-02000-VR,RC,2000,VR,CH1,4.8,100,2,1,1,1,1,Circuito RC/2 kHz/2000 VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/2%20kHz/2000%20VR.jpeg
+RC-02000-VC,RC,2000,VC,CH1,4.75,100,1.5,1,1,1,1,Circuito RC/2 kHz/2000 VC.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/2%20kHz/2000%20VC.jpeg
+RC-04000-VG,RC,4000,VG,CH1,2.5,100,2.5,1,1,1,1,Circuito RC/4 kHz/4000 VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/4%20kHz/4000%20VG.jpeg
+RC-04000-VR,RC,4000,VR,CH1,2.45,100,2.3,1,1,1,1,Circuito RC/4 kHz/4000 VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/4%20kHz/4000%20VR.jpeg
+RC-04000-VC,RC,4000,VC,CH1,2.45,100,0.9,1,1,1,1,Circuito RC/4 kHz/4000 VC.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/4%20kHz/4000%20VC.jpeg
+RC-08000-VG,RC,8000,VG,CH1,2.5,50,2.5,1,1,1,1,Circuito RC/8 kHz/8000 VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/8%20kHz/8000%20VG.jpeg
+RC-08000-VR,RC,8000,VR,CH1,2.5,50,2.4,1,1,1,1,Circuito RC/8 kHz/8000 VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/8%20kHz/8000%20VR.jpeg
+RC-08000-VC,RC,8000,VC,CH1,2.55,50,2.4,0.2,1,1,1,Circuito RC/8 kHz/8000 VC.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RC/8%20kHz/8000%20VC.jpeg
+RL-10000-VG,RL,10000,VG,CH1,4.5,20,2.5,1,1,1,1,Circuito RL/10 kHz/10 kHz VG.jpeg,C:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 4/Circuito RL/10 kHz/10 kHz VG.jpeg
+RL-10000-VR,RL,10000,VR,CH1,4.45,20,2,1,1,1,1,Circuito RL/10 kHz/10 kHz VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/10%20kHz/10%20kHz%20VR.jpeg
+RL-10000-VL,RL,10000,VL,CH1,4.5,20,1.4,1,1,1,1,Circuito RL/10 kHz/10 kHz VL.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/10%20kHz/10%20kHz%20VL.jpeg
+RL-20000-VG,RL,20000,VG,CH1,4.95,10,3,1,1,1,1,Circuito RL/20 kHz/20 kHz VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/20%20kHz/20%20kHz%20VG.jpeg
+RL-20000-VR,RL,20000,VR,CH1,4.95,10,1.9,1,1,1,1,Circuito RL/20 kHz/20 kHz VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/20%20kHz/20%20kHz%20VR.jpeg
+RL-20000-VL,RL,20000,VL,CH1,5.05,10,2.2,1,1,1,1,Circuito RL/20 kHz/20 kHz VL.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/20%20kHz/20%20kHz%20VL.jpeg
+RL-30000-VG,RL,30000,VG,CH1,3.25,10,2.5,1,1,1,1,Circuito RL/30 kHz/30 kHz VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/30%20kHz/30%20kHz%20VG.jpeg
+RL-30000-VR,RL,30000,VR,CH1,3.3,10,2.3,0.5,1,1,1,Circuito RL/30 kHz/30 kHz VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/30%20kHz/30%20kHz%20VR.jpeg
+RL-30000-VL,RL,30000,VL,CH1,3.25,10,2.2,1,1,1,1,Circuito RL/30 kHz/30 kHz VL.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/30%20kHz/30%20kHz%20VL.jpeg
+RL-40000-VG,RL,40000,VG,CH1,2.45,10,2.5,1,1,1,1,Circuito RL/40 kHz/40 kHz VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/40%20kHz/40%20kHz%20VG.jpeg
+RL-40000-VR,RL,40000,VR,CH1,2.45,10,1.8,0.5,1,1,1,Circuito RL/40 kHz/40 kHz VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/40%20kHz/40%20kHz%20VR.jpeg
+RL-40000-VL,RL,40000,VL,CH1,2.45,10,2.3,1,1,1,1,Circuito RL/40 kHz/40 kHz VL.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/40%20kHz/40%20kHz%20VL.jpeg
+RL-50000-VG,RL,50000,VG,CH1,1.95,10,2.5,1,1,1,1,Circuito RL/50 kHz/50 kHz VG.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/50%20kHz/50%20kHz%20VG.jpeg
+RL-50000-VR,RL,50000,VR,CH1,2,10,1.5,0.5,1,1,1,Circuito RL/50 kHz/50 kHz VR.jpeg,https://github.com/Dewscot/Electromagnetismo-2-laboratorios/blob/main/Laboratorio%204/Circuito%20RL/50%20kHz/50%20kHz%20VR.jpeg
+RL-50000-VL,RL,50000,VL,CH1,2,10,2.4,1,1,1,1,Circuito RL/50 kHz/50 kHz VL.jpeg,C:/Proyectos/Laboratorios/Electromagnetismo 2/Laboratorio 4/Circuito RL/50 kHz/50 kHz VL.jpeg

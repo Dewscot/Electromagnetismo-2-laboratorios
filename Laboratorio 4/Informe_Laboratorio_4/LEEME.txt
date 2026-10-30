@@ -1,0 +1,52 @@
+INFORME BASE EDITABLE - LABORATORIO 4
+
+COMPILAR EN OVERLEAF
+1. Crear un proyecto con Upload Project y seleccionar el ZIP entregado.
+2. Archivo principal: main.tex. Compilador: pdfLaTeX. Bibliografía: BibTeX.
+3. Los datos y las tablas generados están incluidos: basta compilar.
+
+QUÉ MODIFICAR
+- configuracion.tex: autores, docente, ayudantes, sección y fecha de entrega.
+  Los nombres se conservaron del informe del Laboratorio 3.
+  La fecha utiliza \today y se actualiza al recompilar el documento.
+- main.tex: resumen, teoría, procedimiento, análisis y conclusiones.
+- figuras/montajes.tex: esquemas editables con circuitikz.
+- figuras/reactancias.tex: gráficas editables con pgfplots.
+- Referencias.bib: bibliografía. Incluye el texto de Young y Freedman,
+  el manual del osciloscopio HM203-7 y la guía del Laboratorio 4.
+  El manual y la guía se incorporan a la bibliografía mediante \nocite en main.tex.
+- tablas/*.tex: tablas editables; recalcular.py las vuelve a generar.
+
+DATOS Y RECÁLCULO
+- datos/lecturas.csv conserva las 30 lecturas del Excel corregido y sus fuentes.
+- datos/parametros_experimento.json contiene los valores nominales utilizados.
+- Ejecutar: python recalcular.py
+  Solo requiere Python 3 y su biblioteca estándar. Regenera datos/rc.csv,
+  datos/rl.csv, datos/parametros.tex, datos/ajustes.json y tablas/*.tex.
+- Después hay que recompilar LaTeX. En Overleaf, el script Python se ejecuta
+  localmente y sus resultados se vuelven a subir al proyecto.
+- El script conserva el Excel y las fotografías originales.
+- Si cambias lecturas o parámetros, revisa los números del resumen, análisis
+  y conclusiones, que forman parte del texto editable de main.tex. Los valores
+  con incertidumbre y los coeficientes de las rectas se regeneran con el script.
+
+AJUSTES Y ERRORES ESTÁNDAR
+- XC se ajusta frente a 1/f; XL se ajusta frente a f.
+- Se utilizan las frecuencias experimentales y los cinco puntos de cada circuito.
+- Se aplica mínimos cuadrados con intercepto libre.
+- aC y aL son las pendientes; bC y bL son los interceptos.
+- u_ajuste procede de la dispersión de los puntos respecto de la recta.
+  Se obtiene transformando el error estándar de la pendiente a C o L.
+  Su alcance es estadístico y no incluye las limitaciones de lectura de las señales.
+- El error relativo porcentual es 100*abs((experimental-nominal)/nominal).
+  Se utiliza tanto para las reactancias como para C y L; sus valores son positivos o cero.
+
+FIGURAS Y REGISTROS
+- Estilo y logos: informe del Laboratorio 3.
+- imagenes/ incluye las 30 fotografías identificadas por el ID de cada lectura,
+  dos fotos de montaje y las fotos de las cajas de resistencia y condensador.
+- Los registros originales se conservan como respaldo de los datos del proyecto.
+
+ANTES DE ENTREGAR
+Revisar los datos personales y docentes y adaptar el texto a la versión final
+que desees presentar. La fecha corresponde al día de compilación.

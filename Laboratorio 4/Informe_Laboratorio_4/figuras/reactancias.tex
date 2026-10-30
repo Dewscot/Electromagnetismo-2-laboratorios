@@ -1,0 +1,61 @@
+\par
+\pgfplotsset{labaxis/.style={
+ width=\linewidth,height=6.1cm,
+ tick label style={font=\small},label style={font=\small},
+ legend style={font=\footnotesize,draw=none,fill=none},
+ grid=major,grid style={gray!20},axis line style={black!65},
+ scaled ticks=false,unbounded coords=jump,
+ /pgf/number format/use comma,/pgf/number format/1000 sep={}}}
+\begin{center}
+\begin{minipage}[t]{.49\textwidth}\centering
+\begin{tikzpicture}
+\begin{axis}[labaxis,xlabel={$f_{\mathrm{exp}}$ (kHz)},ylabel={$X_C$ (k$\Omega$)},
+ xmin=0,xmax=8.6,ymin=0,ymax=3.6,legend pos=north east]
+ \addplot[only marks,mark=*,color=observado]
+ table[x=f_kHz,y=X_kOhm,col sep=comma]{datos/rc.csv};
+ \addlegendentry{Datos}
+ \addplot[black!65,dashed,domain=.45:8.4,samples=150]{1/(2*pi*\CnomUF*x)};
+ \addlegendentry{$C$ nominal}
+\end{axis}\end{tikzpicture}\par\small (a) Dependencia inversa.
+\end{minipage}\hfill
+\begin{minipage}[t]{.49\textwidth}\centering
+\begin{tikzpicture}
+\begin{axis}[labaxis,xlabel={$1/f_{\mathrm{exp}}$ (ms)},ylabel={$X_C$ (k$\Omega$)},
+ xmin=0,xmax=2.15,ymin=0,ymax=3.6,legend pos=north west]
+ \addplot[only marks,mark=*,color=observado]
+ table[x=invf_ms,y=X_kOhm,col sep=comma]{datos/rc.csv};
+ \addlegendentry{Datos}
+ \addplot[udecazul,domain=0:2.1]{\Arcplot*x+\Brcplot};
+ \addlegendentry{Ajuste lineal}
+ \addplot[black!65,dashed,domain=0:2.1]{x/(2*pi*\CnomUF)};
+ \addlegendentry{$C$ nominal}
+\end{axis}\end{tikzpicture}\par\small (b) Linealización.
+\end{minipage}
+\captionof{figure}{Reactancia capacitiva: dependencia con la frecuencia y ajuste frente a su inversa. Los puntos son los valores experimentales y la línea discontinua corresponde al condensador nominal.}
+\label{fig:rc}
+\end{center}
+\begin{equation}
+ X_C=(\num{\PendienteC}\,\si{\ohm\per\second})\frac{1}{f}\TerminoC.
+ \label{eq:rectaC}
+\end{equation}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[labaxis,width=.78\textwidth,height=6.1cm,
+ xlabel={$f_{\mathrm{exp}}$ (kHz)},ylabel={$X_L$ (k$\Omega$)},
+ xmin=0,xmax=56,ymin=0,ymax=3.8,legend pos=north west]
+ \addplot[only marks,mark=square*,color=observado]
+ table[x=f_kHz,y=X_kOhm,col sep=comma]{datos/rl.csv};
+ \addlegendentry{Datos}
+ \addplot[udecazul,domain=0.8:55]{\Arlplot*x+\Brlplot};
+ \addlegendentry{Ajuste lineal}
+ \addplot[black!65,dashed,domain=0:55]{2*pi*\LnomMH/1000*x};
+ \addlegendentry{$L$ nominal}
+\end{axis}\end{tikzpicture}
+\captionof{figure}{Reactancia inductiva frente a la frecuencia experimental. Se muestran los cinco puntos experimentales, su ajuste lineal y la recta correspondiente a la inductancia nominal.}
+\label{fig:rl}
+\end{center}
+\begin{equation}
+ X_L=(\num{\PendienteL}\,\si{\ohm\second})f\TerminoL.
+ \label{eq:rectaL}
+\end{equation}

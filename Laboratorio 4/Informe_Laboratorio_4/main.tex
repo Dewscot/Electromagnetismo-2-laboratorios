@@ -1,0 +1,222 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[provide=*,spanish]{babel}
+\usepackage{lmodern,geometry,amsmath,graphicx,xcolor,microtype,multicol}
+\usepackage{caption,fancyhdr,enumitem,booktabs,tabularx,array}
+\usepackage{circuitikz,pgfplots,siunitx,hyperref}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta}
+\geometry{top=1.8cm,bottom=2cm,left=1.75cm,right=1.75cm,headheight=14pt}
+\setlength{\columnsep}{0.65cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setlist{nosep,leftmargin=*}
+\sisetup{output-decimal-marker={,},group-separator={\,},per-mode=symbol}
+\DeclareSIUnit{\division}{div}
+\captionsetup{font=small,labelfont=bf,justification=centering,skip=4pt,hypcap=false}
+\definecolor{udecazul}{HTML}{003A70}
+\definecolor{udecoro}{HTML}{C79A2B}
+\definecolor{observado}{HTML}{B05D22}
+\definecolor{grisedicion}{HTML}{666666}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\input{configuracion.tex}
+\input{datos/parametros.tex}
+\hypersetup{colorlinks=true,linkcolor=udecazul,citecolor=udecazul,urlcolor=udecazul,
+ pdftitle={Laboratorio 4: Reactancias en circuitos RC y RL},pdfauthor={Nicolas Ruiz y Julio Bastias}}
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small Laboratorio 4: Reactancias RC y RL}
+\rhead{\small \asignatura}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}\lhead{\small Laboratorio 4: Reactancias RC y RL}\rhead{\small\asignatura}\cfoot{\small\thepage}\renewcommand{\headrulewidth}{0.4pt}}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+ \begin{minipage}{.46\textwidth}\raggedright
+  \includegraphics[width=.68\linewidth]{figuras/logo_udec.png}
+ \end{minipage}
+ \begin{minipage}{.46\textwidth}\raggedleft
+  \includegraphics[width=.68\linewidth]{figuras/logo_fcfm.png}
+ \end{minipage}
+ {\color{udecoro}\rule{.82\textwidth}{1.2pt}\par}
+ \vspace{.1cm}{\Large\bfseries \asignatura\par}
+ \vspace{.1cm}{\large\bfseries\color{udecazul}\laboratorio\par}
+ \vspace{.1cm}{\Large\bfseries\color{udecazul}\tituloinforme\par}
+ \vspace{.1cm}{\normalsize Informe experimental\par}
+ {\small\autores\par}
+ {\footnotesize\itshape\procedencia\par}
+ {\small Docente: \docente\par}
+ {\small Ayudantes: \ayudantes\par}
+ {\small\seccion\quad$\vert$\quad\fechaentrega\par}
+\end{center}
+
+\begin{abstract}
+Se estudió la dependencia de las reactancias capacitiva e inductiva con la frecuencia en circuitos RC y RL en serie. Se utilizó una resistencia nominal de \SI{1}{\kilo\ohm}, un condensador de \SI{0.1}{\micro\farad} y una bobina de \SI{9}{\milli\henry}. Para cinco frecuencias por circuito se midieron el período y los voltajes del generador, del resistor y del condensador o de la bobina. Las amplitudes se calcularon con las alturas de las señales y las escalas del osciloscopio; la frecuencia se obtuvo del período. Cada reactancia se determinó mediante el cociente de voltajes del componente y del resistor. El ajuste lineal de $X_C$ frente a $1/f$ entregó $C=(\ResultadoC)\,\si{\micro\farad}$, mientras que el de $X_L$ frente a $f$ dio $L=(\ResultadoL)\,\si{\milli\henry}$. Las incertidumbres son errores estándar debidos a la dispersión de los ajustes. Las diferencias absolutas respecto de los valores nominales fueron \num{3.9}\,\% y \num{12.2}\,\%, respectivamente. Los resultados mostraron la disminución de $X_C$ y el aumento de $X_L$ al incrementar la frecuencia, de acuerdo con las relaciones teóricas de ambos componentes.
+\end{abstract}
+
+\begin{multicols}{2}\raggedcolumns
+\section{Introducción}
+En corriente alterna, los condensadores y las bobinas almacenan energía y presentan una oposición a la corriente que depende de la frecuencia. La reactancia capacitiva disminuye al aumentar $f$, mientras que la inductiva aumenta. Estas relaciones permiten determinar la capacitancia $C$ y la inductancia $L$ a partir de mediciones de voltaje y frecuencia \cite{young2009}.
+
+En esta experiencia se estudiaron un circuito RC y un circuito RL por separado. En cada uno se midieron las señales del generador, del resistor y del condensador o de la bobina. El voltaje del resistor permitió obtener la corriente y, con ella, la reactancia del componente estudiado.
+
+\begin{minipage}{\linewidth}
+\section{Objetivos}
+Medir $X_C(f)$ y $X_L(f)$, verificar su dependencia con la frecuencia y determinar $C$ y $L$ mediante ajustes lineales, comparándolos con los valores nominales.
+\end{minipage}\par
+
+\section{Marco teórico}
+\subsection{Reactancia capacitiva}
+Para un condensador ideal de capacitancia $C$, la reactancia a una frecuencia $f$ es
+\begin{equation}
+ X_C=\frac{1}{2\pi fC}.
+ \label{eq:reactanciaC}
+\end{equation}
+En el circuito RC en serie, el resistor y el condensador conducen la misma corriente. Sus amplitudes de voltaje cumplen $V_{R,m}=I_mR$ y $V_{C,m}=I_mX_C$. Por tanto,
+\begin{equation}
+ X_C=R\frac{V_{C,m}}{V_{R,m}}.
+ \label{eq:ratioC}
+\end{equation}
+
+\subsection{Reactancia inductiva}
+Para una bobina de inductancia $L$, despreciando su resistencia interna, la reactancia es
+\begin{equation}
+ X_L=2\pi fL.
+ \label{eq:reactanciaL}
+\end{equation}
+En el circuito RL en serie, las amplitudes satisfacen $V_{R,m}=I_mR$ y $V_{L,m}=I_mX_L$. De estas relaciones se obtiene
+\begin{equation}
+ X_L=R\frac{V_{L,m}}{V_{R,m}}.
+ \label{eq:ratioL}
+\end{equation}
+\end{multicols}
+
+\clearpage
+\begin{multicols}{2}\raggedcolumns
+\subsection{Medición de frecuencia y voltaje}
+Si $\Delta h$ es la distancia horizontal entre dos máximos consecutivos y $s_t$ es la escala de tiempo por división, el período y la frecuencia experimental se calculan como
+\begin{equation}
+ T=\Delta h\,s_t,\qquad f_{\rm exp}=\frac{1}{T}.
+ \label{eq:tiempo}
+\end{equation}
+El voltaje pico a pico, $V_{pp}$, es la diferencia entre el valor máximo y el mínimo de la señal. Para una altura vertical total $\Delta H$ y una escala de voltaje por división $s_V$,
+\begin{equation}
+ V_{pp}=\Delta H\,s_V,\qquad V_m=\frac{V_{pp}}{2}.
+ \label{eq:voltaje}
+\end{equation}
+Aquí $V_m$ es la amplitud de la señal senoidal. Los cocientes de las ecuaciones~\eqref{eq:ratioC} y \eqref{eq:ratioL} también pueden calcularse con voltajes pico a pico, empleando la misma convención en ambos voltajes.
+
+\subsection{Ajustes lineales}
+La ecuación~\eqref{eq:reactanciaC} se escribe en función de $1/f$ como
+\begin{equation}
+ X_C=a_C(1/f)+b_C,\qquad C=\frac{1}{2\pi a_C}.
+ \label{eq:ajusteC}
+\end{equation}
+Para la bobina, la ecuación~\eqref{eq:reactanciaL} se expresa como
+\begin{equation}
+ X_L=a_Lf+b_L,\qquad L=\frac{a_L}{2\pi}.
+ \label{eq:ajusteL}
+\end{equation}
+Los coeficientes $a_C$ y $a_L$ son las pendientes de los ajustes de $X_C$ frente a $1/f$ y de $X_L$ frente a $f$, respectivamente. Los coeficientes $b_C$ y $b_L$ son sus interceptos. Las pendientes tienen unidades de $\Omega/\mathrm{s}$ y $\Omega\,\mathrm{s}$, respectivamente; ambos interceptos se expresan en ohmios.
+
+Se ajustaron los cinco puntos de cada circuito mediante mínimos cuadrados con intercepto libre. A partir de las pendientes se obtuvieron $C$ y $L$. Para comparar un valor experimental $p_{\rm exp}$ con su valor nominal $p_{\rm nom}$, se calculó el error relativo porcentual
+\begin{equation}
+ E=100\left|\frac{p_{\rm exp}-p_{\rm nom}}{p_{\rm nom}}\right|.
+ \label{eq:error}
+\end{equation}
+
+\section{Materiales y procedimiento}
+Se utilizaron un generador de señales, un osciloscopio HAMEG HM203-7, una caja de resistencias Phipps \& Bird 236A ajustada a \SI{1}{\kilo\ohm}, una caja de condensadores 237 ajustada a \SI{0.1}{\micro\farad}, una bobina de 600 vueltas con \SI{9}{\milli\henry} nominales y cables de conexión.
+
+Se armó cada circuito en serie y se aplicó una señal senoidal. Con un canal del osciloscopio se midieron, una por una, las señales del generador, del resistor y del condensador o de la bobina. Se mantuvo una referencia de tierra común en $b$; para medir cada componente se intercambiaron sus posiciones, como muestra la figura~\ref{fig:montajes}.
+
+En RC se estudiaron las frecuencias nominales de \SI{0.5}{\kilo\hertz}, \SI{1}{\kilo\hertz}, \SI{2}{\kilo\hertz}, \SI{4}{\kilo\hertz} y \SI{8}{\kilo\hertz}. En RL se trabajó de \SI{10}{\kilo\hertz} a \SI{50}{\kilo\hertz}, en pasos de \SI{10}{\kilo\hertz}. Para cada frecuencia se registraron el período del generador, las alturas pico a pico de las señales y las escalas correspondientes.
+
+Con las divisiones leídas sobre la retícula y sus escalas se calcularon las frecuencias, las amplitudes y las reactancias de cada circuito.
+\end{multicols}
+
+\begin{center}
+\input{figuras/montajes.tex}
+\captionof{figure}{Configuraciones para medir los voltajes en cada circuito. La señal del generador se mide entre $a$ y $b$; el voltaje del componente situado a la derecha, entre $c$ y $b$. Cada señal se registra por separado con una referencia de tierra común.}
+\label{fig:montajes}
+\end{center}
+
+\clearpage
+\begin{multicols}{2}\raggedcolumns
+\section{Resultados}
+Las frecuencias se calcularon mediante la ecuación~\eqref{eq:tiempo}. Las amplitudes y las reactancias se obtuvieron con las ecuaciones~\eqref{eq:voltaje}, \eqref{eq:ratioC} y \eqref{eq:ratioL}. Se utilizó la frecuencia experimental de cada serie para calcular las reactancias nominales y realizar los ajustes.
+
+\subsection{Circuito RC}
+Las tablas~\ref{tab:rc_frecuencias} y \ref{tab:rc} presentan las frecuencias y los resultados del circuito RC.
+\input{tablas/rc_frecuencias.tex}
+\input{tablas/rc_resultados.tex}
+
+Como ejemplo, a una frecuencia nominal de \SI{2}{\kilo\hertz}, las lecturas entregan
+\begin{align}
+ f_{\rm exp}&=\frac{1}{\num{4.75}\times\SI{100}{\micro\second}}\simeq\SI{2105}{\hertz},\\
+ X_C&=\SI{1000}{\ohm}\frac{\SI{0.75}{\volt}}{\SI{1.00}{\volt}}=\SI{750}{\ohm}.
+\end{align}
+
+\columnbreak
+\subsection{Circuito RL}
+Las tablas~\ref{tab:rl_frecuencias} y \ref{tab:rl} reúnen las frecuencias y los resultados del circuito RL.
+\input{tablas/rl_frecuencias.tex}
+\input{tablas/rl_resultados.tex}
+
+\subsection{Errores relativos}
+La tabla~\ref{tab:errores_reactancias} presenta los errores relativos porcentuales de las reactancias. Los valores nominales de $X_C$ y $X_L$ se calcularon con las ecuaciones~\eqref{eq:reactanciaC} y \eqref{eq:reactanciaL}, respectivamente, empleando $f_{\rm exp}$. En cada caso se aplicó la ecuación~\eqref{eq:error}.
+\input{tablas/errores_reactancias.tex}
+\end{multicols}
+
+\clearpage
+\subsection{Dependencia con la frecuencia y ajustes}
+La figura~\ref{fig:rc} muestra la disminución de $X_C$ con $f$ y su linealización frente a $1/f$; la figura~\ref{fig:rl} muestra el crecimiento de $X_L$. Las curvas nominales corresponden a $C=\SI{0.1}{\micro\farad}$ y $L=\SI{9}{\milli\henry}$. Los ajustes de las ecuaciones~\eqref{eq:ajusteC} y \eqref{eq:ajusteL} entregaron los parámetros de la tabla~\ref{tab:ajustes}. Las rectas ajustadas se expresan con $f=f_{\rm exp}$ en hertz.
+
+\input{figuras/reactancias.tex}
+\input{tablas/ajustes.tex}
+
+\clearpage
+\begin{multicols}{2}\raggedcolumns
+\section{Análisis}
+\subsection{Circuito RC}
+Los datos muestran que $X_C$ disminuye cuando aumenta la frecuencia. Al representar $X_C$ frente a $1/f$, los cinco puntos siguen aproximadamente una recta, como predice la relación $X_C=1/(2\pi fC)$. La pendiente permite obtener $C=(\ResultadoC)\,\si{\micro\farad}$, con una diferencia absoluta de \num{3.9}\,\% respecto del valor nominal de \SI{0.1}{\micro\farad}.
+
+Esta tendencia refleja que el condensador presenta una menor oposición a la corriente a frecuencias más altas. El valor obtenido es cercano al nominal y reproduce la relación inversa que se buscaba estudiar.
+
+\subsection{Circuito RL}
+La reactancia $X_L$ aumenta aproximadamente de forma lineal con la frecuencia. A partir de la pendiente se obtuvo $L=(\ResultadoL)\,\si{\milli\henry}$, con una diferencia absoluta de \num{12.2}\,\% respecto de los \SI{9}{\milli\henry} nominales.
+
+La tendencia creciente concuerda con $X_L=2\pi fL$: la bobina presenta una mayor oposición a la corriente al aumentar la frecuencia. La diferencia del valor de $L$ puede estar relacionada con la lectura de las señales y con la aproximación de la bobina real a un inductor ideal.
+
+El punto de frecuencia nominal de \SI{20}{\kilo\hertz} presenta el mayor alejamiento de la recta y una amplitud del generador mayor que en las otras series. Se incluyeron los cinco puntos en el ajuste. Como la reactancia se calcula con el cociente de voltajes, una variación de amplitud entre frecuencias no cambia el método, siempre que la señal permanezca estable durante las mediciones de cada serie.
+
+\columnbreak
+\subsection{Lecturas y dispersión del ajuste}
+Se empleó la frecuencia calculada a partir del período en cada serie. Por ejemplo, en RL la frecuencia nominal de \SI{10}{\kilo\hertz} corresponde a una frecuencia experimental de aproximadamente \SI{11.1}{\kilo\hertz}.
+
+En las señales de menor amplitud resulta difícil distinguir pequeñas variaciones sobre la retícula, lo que limita la precisión de las lecturas de voltaje.
+
+La tabla~\ref{tab:ajustes} informa el error estándar de $C$ y $L$ debido a la dispersión de los puntos alrededor de las rectas. Este valor describe el ajuste y no incluye las limitaciones de lectura de las señales.
+
+\section{Conclusiones}
+Se verificó que la reactancia capacitiva disminuye con la frecuencia y que la inductiva aumenta. La representación de $X_C$ frente a $1/f$ y de $X_L$ frente a $f$ permitió determinar las propiedades de ambos componentes mediante ajustes lineales.
+
+Se obtuvieron
+\begin{equation*}
+ \begin{aligned}
+ C&=(\ResultadoC)\,\si{\micro\farad},\\
+ L&=(\ResultadoL)\,\si{\milli\henry}.
+ \end{aligned}
+\end{equation*}
+Las incertidumbres corresponden a los errores estándar de los ajustes. Las diferencias absolutas respecto de los valores nominales fueron \num{3.9}\,\% y \num{12.2}\,\%, respectivamente. Los resultados cumplen el objetivo de observar las relaciones entre reactancia y frecuencia. Realizar mediciones repetidas permitiría evaluar la dispersión experimental de las lecturas.
+
+\nocite{manualhameg,guia4}
+\bibliographystyle{unsrt}
+\bibliography{Referencias}
+\end{multicols}
+
+\end{document}
